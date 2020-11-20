@@ -5,6 +5,7 @@ Course project for the Developing Data Products Course in the Data Science Speci
 Project consists of **(1) developing a Shiny application** and deploying it on Rstudio's servers and **(2) creating a reproducible pitch presentation using Slidify** about the Shiny app developed.
 
 Click on the following links:
-[Shiny App](https://ximenalr.shinyapps.io/firstshinyapp/)
-Slidify Presentation: 
+
+- [Shiny App](https://ximenalr.shinyapps.io/firstshinyapp/)
+- Slidify Presentation: 
 
