@@ -14,12 +14,13 @@ shinyServer(function(input, output) {
     })
     
     #define linear model
-    model <- lm(mpg ~ cyl + am + wt, data = mtcars2)
+    model <- lm(mpg ~ cyl + am + disp + wt, data = mtcars2)
     
     #prediction based on UI input
     modelPred <- reactive({
         input_df <- data.frame(cyl = input$cyl,
                                am = input$am,
+                               disp = input$disp,
                                wt = input$wt)
         predict(model, newdata = input_df)
     })

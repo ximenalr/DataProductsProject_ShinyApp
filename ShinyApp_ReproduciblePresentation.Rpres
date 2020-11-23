@@ -1,0 +1,52 @@
+Developing Data Products Course Project: Shiny App Reproducible Presentation
+========================================================
+author: Ximena Ramirez
+date: 11/23/2020
+autosize: true
+
+Introduction
+========================================================
+
+There are many factors that can affect the mileage (miles per gallon/mpg) of an automobile. Using the `mtcars` dataset in the `datasets`package, a linear model was fit using the following variables:
+
+- `am` : Transmission (automatic, manual)
+- `cyl` : Number of cylinder (4, 6, or 8)
+- `disp` : Displacement (cu.in)
+- `wt` : Weight (lbs)
+
+The shiny app created will **predict the MPG (US gal)** of an automobile based on the user's input of value of each of the above variables. [Try it out!](https://ximenalr.shinyapps.io/firstshinyapp/)
+
+The Data 
+========================================================
+
+The data was loaded from the `datasets` package and then formatted in order to better understand the variables.
+
+```{r, data}
+#load data
+data(mtcars)
+
+#reformat variables
+mtcars2 <- within(mtcars, {
+    am <- factor(am, labels = c("automatic", "manual")) #transmission
+    cyl  <- ordered(cyl) #number of cylinders
+    wt <- 1000 * wt #weight in lbs
+    })
+```
+
+Fitting a Linear Model
+========================================================
+
+The linear model used to predict MPG was the final model from a previous project. In summary, the variables chosen for the model were selected through ANOVA table.
+
+```{r model}
+fit_final <- lm(mpg ~ disp + wt + cyl + am, data = mtcars2)
+```
+You can view the project [here](https://rpubs.com/ximenalr/regmodels_mtcars).
+
+Model Coefficients
+========================================================
+
+This is the summary of the model.
+```{r output, echo = FALSE}
+summary(fit_final)$coef
+```
